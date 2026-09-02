@@ -39,3 +39,30 @@ let sm2 = Symbol();
 console.log(sm1 == sm2);
 
 //non-primitive -> objects(array,function,objects)
+//objects
+let obj = {
+  name: "vikrant",
+  email: "vikrant@gmail.com",
+  isLoggin: true,
+  "is trusted": false,
+};
+
+obj.name = "kaka";
+obj.lastName = "verma";
+console.log(obj);
+console.log(obj.name);
+console.log(obj.email);
+console.log(obj.isLoggin);
+console.log(obj["is trusted"]);
+// console.log(typeof obj.isLoggin);
+
+let today = new Date();
+console.log(today.getFullYear());
+console.log(today.getMonth());
+console.log(today.getDate());
+
+//Array
+let heros = ["a", "b", "asdf", true, "123", 123, ,];
+for (let i = 0; i < heros.length; i++) {
+  console.log(heros[i], typeof heros[i]);
+}
