@@ -1,5 +1,3 @@
-const { prepare_files } = require("@gradio/client");
-
 //introduction to loops
 let sum = 0;
 let i = 1;
@@ -91,6 +89,78 @@ for (const tea of teaOpt) {
   preferredTeas.push(tea);
 }
 console.log(teaOpt);
-
 console.log(preferredTeas);
+
+let cityPopulation = {
+  London: 8900000,
+  "New York": 8400000,
+  Pairs: 2200000,
+  Berlin: 3500000,
+};
+let population = {};
+for (const city in cityPopulation) {
+  if (city == "Berlin") {
+    break;
+  }
+  population[city] = cityPopulation[city];
+}
+console.log(population);
+
+let largeCities = {};
+let cityPopu = {
+  sydney: 5000000,
+  tokyo: 9000000,
+  berlin: 3500000,
+  paris: 2200000,
+};
+for (const city in cityPopu) {
+  if (cityPopu[city] < 3000000) {
+    continue;
+  }
+  largeCities[city] = cityPopu[city];
+}
+console.log(largeCities);
+
+let teea = ["earl grey", "green tea", "chai", "oolong tea"];
+let availableTeas = [];
+teea.forEach(function (tea) {
+  if (tea == "chai") {
+    return;
+  }
+  availableTeas.push(tea);
+});
+console.log(availableTeas);
+
+let arrr = ['Berlin','Tokyo','Sydney','Paris'];
+let travelCit = [];
+arrr.forEach((city) => {
+  if(city == 'Sydney'){
+    return;
+  }
+  travelCit.push(city);
+});
+console.log(travelCit);
+
+let list = [2,5,7,9];
+let doubleNumbers = [];
+for(let i=0;i<list.length;i++){
+  if(list[i] === 7){
+    // return;
+    continue;
+  }
+  doubleNumbers.push(list[i] * 2);
+}
+console.log(doubleNumbers);
+
+
+let chai = ['chai','green tea','black tea','jasmin tea','herbal tea'];
+let shortsTea= [];
+for (const tea of chai) {
+  if(tea.length > 10){
+    // continue;
+    break;
+  }
+shortsTea.push(tea)
+}
+console.log(shortsTea);
 
