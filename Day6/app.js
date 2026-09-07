@@ -42,3 +42,36 @@ function deleteItem() {
     .removeChild(document.querySelector("#taskList").lastChild);
 }
 document.querySelector("#removeLastTask").addEventListener("click", deleteItem);
+
+//example 6
+document
+  .querySelector("#clickMeButton")
+  .addEventListener("mouseover", function () {
+    // .addEventListener("dblclick", function () {
+    console.log("hey");
+  });
+//example 7
+document.querySelector("#teaList").addEventListener("click", function (event) {
+  if (event.target && event.target.matches(".teaItem"))
+    console.log(`You selected : ${event.target.textContent}`);
+});
+//example 8
+document
+  .querySelector("#feedbackForm")
+  .addEventListener("submit", function (event) {
+    event.preventDefault();
+    document.querySelector("#feedbackDisplay").textContent =
+      document.querySelector("#feedbackInput").value;
+  });
+//example 9
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelector("#domStatus").textContent = "DOM Content fully loaded";
+  // console.log(document);
+});
+
+///example 10
+document
+  .querySelector("#toggleHighlight")
+  .addEventListener("click", function () {
+    document.querySelector("#descriptionText").classList.toggle("highlight");
+  });
