@@ -52,6 +52,7 @@ ul li {
   margin-bottom: 0.5rem;
   display: flex;
   justify-content: space-between;
+  cursor:pointer;
 }
 ul li button {
   background-color: rgb(197, 127, 29);

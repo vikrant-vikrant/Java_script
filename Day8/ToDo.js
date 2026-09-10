@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   let input = document.querySelector("input");
-  let task = JSON.parse(localStorage.getItem("tasks")) || [];
-  task.forEach((task) => {
+  let taskList = JSON.parse(localStorage.getItem("tasks")) || [];
+  taskList.forEach((task) => {
     renderTask(task);
   });
 
@@ -13,7 +13,8 @@ document.addEventListener("DOMContentLoaded", () => {
       text: taskText,
       completed: false,
     };
-    task.push(newTask);
+    taskList.push(newTask);
+    renderTask(newTask);
     saveTask();
     input.value = "";
   });
@@ -21,23 +22,16 @@ document.addEventListener("DOMContentLoaded", () => {
   function renderTask(task) {
     let todo = document.createElement("li");
     todo.setAttribute("data-id", task.id);
-    // if(task.completed) todo.classList.add('completed');
-    // todo.addEventListener('click',(e)=>{
-    //   if(e.target.tagName === 'BUTTON') return;
-    //   todo.completed = !task.completed;
-    //   todo.classList.toggle('completed');
-    //   saveTask();
-    // })
     todo.innerText = task.text;
-    let doneBtn = document.createElement("button");
-    doneBtn.textContent = "Done";
-    todo.append(doneBtn);
     document.querySelector(".list ul").append(todo);
-    todo.addEventListener('click',()=>{
-      todo.classList.toggle('completed');
-    })
+    todo.addEventListener("click", (e) => {
+      e.stopPropagation();
+      taskList = taskList.filter((t)=>t.id !== task.id)
+      todo.remove();
+      saveTask();
+    });
   }
   function saveTask() {
-    localStorage.setItem("tasks", JSON.stringify(task));
+    localStorage.setItem("tasks", JSON.stringify(taskList));
   }
 });
